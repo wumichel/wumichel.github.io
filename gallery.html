@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Image Gallery</title>
+    <style>
+        body {
+            position: relative; 
+            overflow: hidden; 
+            background-color: #f0f8ff; 
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10%; 
+            opacity: 0.9; 
+            pointer-events: none;
+            animation: fall linear infinite; 
+        }
+
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(0); 
+            }
+            100% {
+                transform: translateY(100vh); 
+        }
+    </style>
+</head>
+<body>
+    <h2 style="text-align:center">Photo Gallery</h2>
+    <nav class="navbar">
+        <a href="homepage.html" class="nav-item">
+            <img src="house.jpg" alt="Homepage">
+            <p>Homepage</p> 
+        </a>
+        <a href="visa-application.html" class="nav-item">
+            <img src="visa.webp" alt="Visa Application">
+            <p>Visa Application</p> 
+        </a>
+        <a href="guidence.html" class="nav-item">
+            <img src="iceland.png" alt="Guidance">
+            <p>Guidance</p> 
+        </a>
+        <a href="gallery.html" class="nav-item">
+            <img src="jg.jpg" alt="Gallery">
+            <p>Gallery</p>
+        </a>
+    </nav>
+
+    <div class="album-container">
+        <div class="album-slides">
+            <img src="jg.jpg" class="album-image" style="display: block;">
+            <img src="6.jpg" class="album-image" style="display: none;">
+            <img src="1.jpg" class="album-image" style="display: none;">
+            <img src="2.jpg" class="album-image" style="display: none;">
+            <img src="3.jpg" class="album-image" style="display: none;">
+            <img src="4.jpg" class="album-image" style="display: none;">
+            <img src="5.jpg" class="album-image" style="display: none;">
+        </div>
+
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function showSlides(n) {
+            let slides = document.getElementsByClassName("album-image");
+
+            if (n >= slides.length) {
+                slideIndex = 0;
+            }
+            if (n < 0) {
+                slideIndex = slides.length - 1;
+            }
+
+            for (let i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+
+            slides[slideIndex].style.display = "block";
+        }
+
+        function createSnowflakes() {
+            const snowflakeCount = 100;
+            const body = document.body;
+
+            for (let i = 0; i < snowflakeCount; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.className = 'snowflake';
+                snowflake.innerText = '❄️'; 
+
+                
+                snowflake.style.left = Math.random() * 100 + 'vw'; 
+                snowflake.style.animationDuration = Math.random() * 3 + 2 + 's'; 
+                snowflake.style.fontSize = Math.random() * 10 + 10 + 'px'; 
+                body.appendChild(snowflake);
+            }
+        }
+
+        createSnowflakes(); 
+    </script>
+
+    <div class="feedback-section">
+        <h2>Leave Your Feedback</h2>
+        <form id="feedback-form">
+            <label for="color">Choose a Color:</label>
+            <input type="color" id="color" name="color" value="#000000">
+            
+            <label for="font">Choose a Font:</label>
+            <select id="font" name="font">
+                <option value="Arial">Arial</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Georgia">Georgia</option>
+                <option value="Times New Roman">Times New Roman</option>
+                <option value="Verdana">Verdana</option>
+            </select>
+            
+            <label for="message">Your Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+
+    <div id="feedback-display" class="feedback-display"></div>
+
+    <script>
+        document.getElementById('feedback-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const color = document.getElementById('color').value;
+            const font = document.getElementById('font').value;
+            const message = document.getElementById('message').value;
+
+            const feedbackCard = document.createElement('div');
+            feedbackCard.className = 'feedback-card';
+            feedbackCard.style.backgroundColor = color;
+            feedbackCard.style.fontFamily = font;
+            feedbackCard.innerText = message;
+
+            document.getElementById('feedback-display').appendChild(feedbackCard);
+
+            this.reset();
+        });
+    </script>
+</body>
+</html>

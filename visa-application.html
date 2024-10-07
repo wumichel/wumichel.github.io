@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="mystyle.css">
+    <title>Visa Application</title>
+</head>
+<body>
+    <header>
+        <h1>Visa Application</h1>
+    </header>
+
+    <nav class="navbar">
+        <a href="homepage.html" class="nav-item">
+            <img src="house.jpg" alt="Homepage">
+            <p>Homepage</p> 
+        </a>
+        <a href="visa-application.html" class="nav-item">
+            <img src="visa.webp" alt="Visa Application">
+            <p>Visa Application</p> 
+        </a>
+        <a href="guidence.html" class="nav-item">
+            <img src="iceland.png" alt="Guidance">
+            <p>Guidance</p> 
+        </a>
+        <a href="gallery.html" class="nav-item">
+            <img src="jg.jpg" alt="Gallery">
+            <p>Gallery</p>
+        </a>
+    </nav>
+
+    <p>
+        <br>Although Iceland has both an embassy and a consulate in Canada, neither of them handles visa matters, and both are entrusted to the Danish Embassy/Consulate. Therefore, to apply for an Icelandic visa in Canada, you must first fill out the visa application form online on the Danish Ministry of Foreign Affairs' visa website and pay the visa fee, and then make an appointment on the VFS Global website to submit the visa documents and take photos and fingerprints.</br>
+    </p>
+    
+    <a href="https://www.vfsglobal.com/en/individuals/index.html">Official website of Visa Application</a>
+
+    <!-- Flex Container for Card and Video -->
+    <div class="flex-container">
+        <!-- Card for Visitor Information Form -->
+        <div class="card">
+            <h2>Visitor Information</h2>
+            <form action="#" method="post">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+
+                <label for="age">Age:</label>
+                <input type="number" id="age" name="age" required><br>
+
+                <label for="gender">Gender:</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select><br>
+
+                <label for="travelers">Number of Travelers:</label>
+                <input type="number" id="travelers" name="travelers" required><br>
+
+                <label for="purpose">Purpose of Travel:</label>
+                <input type="text" id="purpose" name="purpose" required><br>
+
+                <label for="duration">Planned Duration (days):</label>
+                <input type="number" id="duration" name="duration" required><br>
+
+                <label for="visa-status">Have you applied for a visa before?</label>
+                <select id="visa-status" name="visa-status" required>
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select><br>
+                <p>our volunteers will help you analyz your application information</p>
+                <input type="submit" value="Submit">s
+            </form>
+        </div>
+
+        <!-- Video Section -->
+        <div class="video-container">
+            <iframe width="100%" height="100%" src="https://www.youtube.com/embed/KSEWiF80M34" title="Iceland Adventure: Visa Guide for ALL Travelers (Canadians Included!)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</body>
+</html>
